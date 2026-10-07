@@ -10,7 +10,9 @@ def draw():
     print('draw')
 
 
-while True:
+running = True
+
+while running:
     handle_events()
     update()
     draw()
