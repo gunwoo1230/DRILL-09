@@ -211,7 +211,7 @@ face 는 dir_x 가 0이 아닐 때만 갱신 → 위/아래 이동 시 기존 �
 
 ## 10. 제출 전 체크리스트
 
-- [ ] 저장소 이름이 DRILL 9 이고, URL이 `.git` 으로 끝남
+- [x] 저장소 이름이 DRILL 9 이고, URL이 `.git` 으로 끝남 → `https://github.com/gunwoo1230/DRILL-09.git`
 - [x] `animation_sheet.png`, `TUK_GROUND.png` 가 저장소에 포함됨
 - [x] 배경이 TUK_GROUND 로 꽉 참
 - [x] ↑↓←→ 및 대각선 이동 동작
