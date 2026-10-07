@@ -25,8 +25,9 @@ def handle_events():
 
 
 def update():
-    global frame
+    global frame, x
     frame = (frame + 1) % 8
+    x += dir_x * 10
 
 
 def draw():
