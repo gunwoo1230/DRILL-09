@@ -36,6 +36,7 @@ def update():
     x += dir_x * 10
     y += dir_y * 10
     x = max(50, min(1230, x))
+    y = max(50, min(974, y))
     print(x, y)
     if dir_x != 0:
         face = dir_x
