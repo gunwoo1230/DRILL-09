@@ -35,9 +35,9 @@ def update():
     frame = (frame + 1) % 8
     x += dir_x * 10
     y += dir_y * 10
-    x = max(50, min(1230, x))
-    y = max(50, min(974, y))
-    print(x, y)
+    # 스프라이트 실제 몸 크기 기준 여백: 좌우 35px, 상하 42px
+    x = max(35, min(1280 - 35, x))
+    y = max(42, min(1024 - 42, y))
     if dir_x != 0:
         face = dir_x
 
