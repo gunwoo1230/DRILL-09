@@ -17,10 +17,13 @@ def update():
 
 
 def draw():
-    pass
+    clear_canvas()
+    tuk_ground.draw(640, 512)
+    update_canvas()
 
 
 open_canvas(1280, 1024)
+tuk_ground = load_image('TUK_GROUND.png')
 
 running = True
 
