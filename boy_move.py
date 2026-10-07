@@ -2,7 +2,7 @@ from pico2d import *
 
 
 def handle_events():
-    global running, dir_x
+    global running, dir_x, dir_y
 
     events = get_events()
     for event in events:
@@ -15,11 +15,21 @@ def handle_events():
                 dir_x -= 1
             elif event.key == SDLK_RIGHT:
                 dir_x += 1
+            elif event.key == SDLK_UP:
+                dir_y += 1
+            elif event.key == SDLK_DOWN:
+                dir_y -= 1
+            print(dir_y)
         elif event.type == SDL_KEYUP:
             if event.key == SDLK_LEFT:
                 dir_x += 1
             elif event.key == SDLK_RIGHT:
                 dir_x -= 1
+            elif event.key == SDLK_UP:
+                dir_y -= 1
+            elif event.key == SDLK_DOWN:
+                dir_y += 1
+            print(dir_y)
 
 
 def update():
@@ -48,6 +58,7 @@ x, y = 640, 512
 frame = 0
 face = 1
 dir_x = 0
+dir_y = 0
 
 while running:
     handle_events()
