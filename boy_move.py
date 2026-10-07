@@ -35,6 +35,7 @@ def update():
     frame = (frame + 1) % 8
     x += dir_x * 10
     y += dir_y * 10
+    x = min(1230, x)
     print(x, y)
     if dir_x != 0:
         face = dir_x
