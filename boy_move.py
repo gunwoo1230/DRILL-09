@@ -11,4 +11,6 @@ def draw():
 
 
 while True:
-    pass
+    handle_events()
+    update()
+    draw()
