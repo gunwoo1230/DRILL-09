@@ -41,7 +41,9 @@ def update():
 def draw():
     clear_canvas()
     tuk_ground.draw(640, 512)
-    if face == 1:
+    if dir_x != 0 or dir_y != 0:
+        character.clip_draw(frame * 100, 100, 100, 100, x, y)
+    elif face == 1:
         character.clip_draw(frame * 100, 300, 100, 100, x, y)
     else:
         character.clip_draw(frame * 100, 200, 100, 100, x, y)
