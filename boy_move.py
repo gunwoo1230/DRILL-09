@@ -38,13 +38,17 @@ def handle_events():
                 dir_y += 1
 
 
+def clamp(low, value, high):
+    return max(low, min(high, value))
+
+
 def update():
     global frame, x, y, face
     frame = (frame + 1) % 8
     x += dir_x * SPEED
     y += dir_y * SPEED
-    x = max(MARGIN_X, min(TUK_WIDTH - MARGIN_X, x))
-    y = max(MARGIN_Y, min(TUK_HEIGHT - MARGIN_Y, y))
+    x = clamp(MARGIN_X, x, TUK_WIDTH - MARGIN_X)
+    y = clamp(MARGIN_Y, y, TUK_HEIGHT - MARGIN_Y)
     if dir_x != 0:
         face = dir_x
 
