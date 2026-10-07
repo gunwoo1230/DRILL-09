@@ -49,18 +49,17 @@ def update():
         face = dir_x
 
 
+def get_action_row():
+    moving = dir_x != 0 or dir_y != 0
+    if moving:
+        return RUN_RIGHT if face == 1 else RUN_LEFT
+    return IDLE_RIGHT if face == 1 else IDLE_LEFT
+
+
 def draw():
     clear_canvas()
     tuk_ground.draw(TUK_WIDTH // 2, TUK_HEIGHT // 2)
-    if dir_x != 0 or dir_y != 0:
-        if face == 1:
-            character.clip_draw(frame * FRAME_SIZE, RUN_RIGHT, FRAME_SIZE, FRAME_SIZE, x, y)
-        else:
-            character.clip_draw(frame * FRAME_SIZE, RUN_LEFT, FRAME_SIZE, FRAME_SIZE, x, y)
-    elif face == 1:
-        character.clip_draw(frame * FRAME_SIZE, IDLE_RIGHT, FRAME_SIZE, FRAME_SIZE, x, y)
-    else:
-        character.clip_draw(frame * FRAME_SIZE, IDLE_LEFT, FRAME_SIZE, FRAME_SIZE, x, y)
+    character.clip_draw(frame * FRAME_SIZE, get_action_row(), FRAME_SIZE, FRAME_SIZE, x, y)
     update_canvas()
 
 
