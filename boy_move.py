@@ -13,7 +13,8 @@ def handle_events():
 
 
 def update():
-    pass
+    global frame
+    frame = (frame + 1) % 8
 
 
 def draw():
