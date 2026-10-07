@@ -35,10 +35,8 @@ def update():
     frame = (frame + 1) % 8
     x += dir_x * 10
     y += dir_y * 10
-    print(dir_x != 0 or dir_y != 0)
     if dir_x != 0:
         face = dir_x
-    print(face)
 
 
 def draw():
