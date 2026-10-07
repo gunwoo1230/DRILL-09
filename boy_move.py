@@ -19,11 +19,13 @@ def update():
 def draw():
     clear_canvas()
     tuk_ground.draw(640, 512)
+    character.clip_draw(0, 300, 100, 100, 640, 512)
     update_canvas()
 
 
 open_canvas(1280, 1024)
 tuk_ground = load_image('TUK_GROUND.png')
+character = load_image('animation_sheet.png')
 
 running = True
 
