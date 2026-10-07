@@ -1,3 +1,4 @@
+# Drill #9. 방향키로 소년을 상하좌우 이동하고, 방향에 맞는 애니메이션을 보여준다.
 from pico2d import *
 
 TUK_WIDTH, TUK_HEIGHT = 1280, 1024
@@ -10,6 +11,7 @@ IDLE_RIGHT, IDLE_LEFT, RUN_RIGHT, RUN_LEFT = 300, 200, 100, 0
 
 
 def handle_events():
+    # KEYDOWN에서 더하고 KEYUP에서 빼는 누적 방식: 반대 키를 동시에 누르면 합이 0이 되어 멈춘다
     global running, dir_x, dir_y
 
     events = get_events()
@@ -45,11 +47,13 @@ def update():
     y += dir_y * SPEED
     x = clamp(MARGIN_X, x, TUK_WIDTH - MARGIN_X)
     y = clamp(MARGIN_Y, y, TUK_HEIGHT - MARGIN_Y)
+    # 좌우로 움직일 때만 바라보는 방향 갱신 (위/아래 이동 시에는 기존 방향 유지)
     if dir_x != 0:
         face = dir_x
 
 
 def get_action_row():
+    # 이동 중이면 RUN, 정지 중이면 IDLE. 좌/우는 face로 결정
     moving = dir_x != 0 or dir_y != 0
     if moving:
         return RUN_RIGHT if face == 1 else RUN_LEFT
@@ -70,9 +74,9 @@ character = load_image('animation_sheet.png')
 running = True
 x, y = TUK_WIDTH // 2, TUK_HEIGHT // 2
 frame = 0
-face = 1
-dir_x = 0
-dir_y = 0
+face = 1   # 바라보는 방향: 1 오른쪽, -1 왼쪽
+dir_x = 0  # 좌우 이동 방향: -1, 0, 1
+dir_y = 0  # 상하 이동 방향: -1, 0, 1
 
 while running:
     handle_events()
