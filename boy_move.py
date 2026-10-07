@@ -5,6 +5,8 @@ FRAME_SIZE = 100
 SPEED = 10
 # 스프라이트 실제 몸 크기 기준 여백
 MARGIN_X, MARGIN_Y = 35, 42
+# animation_sheet 행의 bottom 값
+IDLE_RIGHT, IDLE_LEFT, RUN_RIGHT, RUN_LEFT = 300, 200, 100, 0
 
 
 def handle_events():
@@ -52,20 +54,19 @@ def draw():
     tuk_ground.draw(TUK_WIDTH // 2, TUK_HEIGHT // 2)
     if dir_x != 0 or dir_y != 0:
         if face == 1:
-            character.clip_draw(frame * FRAME_SIZE, 100, FRAME_SIZE, FRAME_SIZE, x, y)
+            character.clip_draw(frame * FRAME_SIZE, RUN_RIGHT, FRAME_SIZE, FRAME_SIZE, x, y)
         else:
-            character.clip_draw(frame * FRAME_SIZE, 0, FRAME_SIZE, FRAME_SIZE, x, y)
+            character.clip_draw(frame * FRAME_SIZE, RUN_LEFT, FRAME_SIZE, FRAME_SIZE, x, y)
     elif face == 1:
-        character.clip_draw(frame * FRAME_SIZE, 300, FRAME_SIZE, FRAME_SIZE, x, y)
+        character.clip_draw(frame * FRAME_SIZE, IDLE_RIGHT, FRAME_SIZE, FRAME_SIZE, x, y)
     else:
-        character.clip_draw(frame * FRAME_SIZE, 200, FRAME_SIZE, FRAME_SIZE, x, y)
+        character.clip_draw(frame * FRAME_SIZE, IDLE_LEFT, FRAME_SIZE, FRAME_SIZE, x, y)
     update_canvas()
 
 
 open_canvas(TUK_WIDTH, TUK_HEIGHT)
 tuk_ground = load_image('TUK_GROUND.png')
 character = load_image('animation_sheet.png')
-# animation_sheet 행(bottom): 300 IDLE 오른쪽, 200 IDLE 왼쪽, 100 RUN 오른쪽, 0 RUN 왼쪽
 
 running = True
 x, y = TUK_WIDTH // 2, TUK_HEIGHT // 2
