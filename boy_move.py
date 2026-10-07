@@ -2,14 +2,20 @@ from pico2d import *
 
 
 def handle_events():
-    global running
+    global running, dir_x
 
     events = get_events()
     for event in events:
         if event.type == SDL_QUIT:
             running = False
-        elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
-            running = False
+        elif event.type == SDL_KEYDOWN:
+            if event.key == SDLK_ESCAPE:
+                running = False
+            elif event.key == SDLK_LEFT:
+                dir_x -= 1
+            elif event.key == SDLK_RIGHT:
+                dir_x += 1
+            print(dir_x)
 
 
 def update():
@@ -36,6 +42,7 @@ running = True
 x, y = 640, 512
 frame = 0
 face = 1
+dir_x = 0
 
 while running:
     handle_events()
