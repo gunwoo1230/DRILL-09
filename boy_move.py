@@ -20,7 +20,10 @@ def update():
 def draw():
     clear_canvas()
     tuk_ground.draw(640, 512)
-    character.clip_draw(frame * 100, 300, 100, 100, 640, 512)
+    if face == 1:
+        character.clip_draw(frame * 100, 300, 100, 100, 640, 512)
+    else:
+        character.clip_draw(frame * 100, 200, 100, 100, 640, 512)
     update_canvas()
 
 
@@ -31,6 +34,7 @@ character = load_image('animation_sheet.png')
 
 running = True
 frame = 0
+face = 1
 
 while running:
     handle_events()
