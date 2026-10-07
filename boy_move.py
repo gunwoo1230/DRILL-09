@@ -19,7 +19,7 @@ def update():
 def draw():
     clear_canvas()
     tuk_ground.draw(640, 512)
-    character.clip_draw(0, 300, 100, 100, 640, 512)
+    character.clip_draw(frame * 100, 300, 100, 100, 640, 512)
     update_canvas()
 
 
@@ -29,6 +29,7 @@ character = load_image('animation_sheet.png')
 # animation_sheet 행(bottom): 300 IDLE 오른쪽, 200 IDLE 왼쪽, 100 RUN 오른쪽, 0 RUN 왼쪽
 
 running = True
+frame = 0
 
 while running:
     handle_events()
