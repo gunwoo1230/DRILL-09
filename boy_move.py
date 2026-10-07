@@ -26,6 +26,7 @@ def draw():
 open_canvas(1280, 1024)
 tuk_ground = load_image('TUK_GROUND.png')
 character = load_image('animation_sheet.png')
+# animation_sheet 행(bottom): 300 IDLE 오른쪽, 200 IDLE 왼쪽, 100 RUN 오른쪽, 0 RUN 왼쪽
 
 running = True
 
