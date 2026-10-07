@@ -38,10 +38,6 @@ def handle_events():
                 dir_y += 1
 
 
-def clamp(low, value, high):
-    return max(low, min(high, value))
-
-
 def update():
     global frame, x, y, face
     frame = (frame + 1) % 8
